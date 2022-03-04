@@ -5,6 +5,7 @@
 {% load smart_settings_tags %}
 
 {% spaceless %}
+<<<<<<< HEAD
     <div style="background-color: #1575C4;" aria-multiselectable="true" class="panel-group" id="accordion-sidebar" role="tablist">
         <div class="panel-heading" id="menu-main-button-close" role="tab">
             <h4 class="panel-title">
@@ -71,4 +72,44 @@
             {% endfor %}
         {% endfor %}
     </div>
+=======
+<body>
+    <nav  class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button aria-expanded="false" aria-controls="navbar" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" type="button">
+                    <span class="sr-only">{% trans 'Toggle navigation' %}</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url home_view %}">CP</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    {% navigation_resolve_menu name='topbar' as topbar_menus_results %}
+                    {% for tobpar_menu_result in topbar_menus_results %}
+                        {% for link_group in tobpar_menu_result.link_groups %}
+                            {% for link in link_group.links %}
+                                {% with 'true' as as_li %}
+                                {% with 'true' as hide_active_anchor %}
+                                {% with 'active' as li_class_active %}
+                                {% with 'first' as li_class_first %}
+                                {% with ' ' as link_classes %}
+                                    {% include 'navigation/generic_subnavigation.html' %}
+                                {% endwith %}
+                                {% endwith %}
+                                {% endwith %}
+                                {% endwith %}
+                                {% endwith %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+</body>
+>>>>>>> 4e3fb3ee53e023fc9502bc8b4700e1e7a9ce47b0
 {% endspaceless %}
