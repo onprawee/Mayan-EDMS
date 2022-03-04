@@ -5,7 +5,7 @@
 {% views_calculate_title as result %}
 
 {% if not non_html_title %}
-    <div style="display: flex;">
+    <div style="display: Extra-light 200;">
         <button id="main-menu-button-open">
             <span class="sr-only">{% trans 'Open main menu' %}</span>
             <i aria-hidden="true" data-hidden="true" class="fa fa-bars"></i>
@@ -16,8 +16,7 @@
         <div>
             <h3 id="content-title" title='{{ result.title_full }}'>
 {% endif %}
-
-                {{ result.title }}
+            Welcome To College Of Computing
 
 {% if not non_html_title and result.title %}
             </h3>

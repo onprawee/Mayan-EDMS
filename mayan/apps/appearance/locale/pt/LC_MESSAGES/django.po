@@ -30,8 +30,8 @@ msgid "Appearance"
 msgstr "Aparência"
 
 #: dependencies.py:8
-msgid "Lato font"
-msgstr "Lato"
+msgid "Prompt font"
+msgstr "Prompt"
 
 #: dependencies.py:12
 msgid "Bootstrap"

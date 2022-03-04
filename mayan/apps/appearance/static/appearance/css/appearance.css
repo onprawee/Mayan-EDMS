@@ -1,22 +1,22 @@
 @font-face {
-    font-family: 'IM Fell English SC';
+    font-family: 'Prompt';
     font-style: normal;
     font-weight: normal;
     src:
-        local('IM FELL English SC'),
-        local('IM_FELL_English_SC'),
-        url('../fonts/IM_Fell_English_SC.eot?#iefix') format('embedded-opentype'),
-        url('../fonts/IM_Fell_English_SC.woff') format('woff'),
-        url('../fonts/IM_Fell_English_SC.svg#IMFellEnglishSC') format('svg'),
-        url('../fonts/IM_Fell_English_SC.ttf') format('truetype');
+        local('Prompt'),
+        local('Prompt'),
+        url('https://fonts.google.com/specimen/Prompt') format('embedded-opentype'),
+        url('https://fonts.google.com/specimen/Prompt') format('woff'),
+        url('https://fonts.google.com/specimen/Prompt') format('svg'),
+        url('https://fonts.google.com/specimen/Prompt') format('truetype');
 }
 
 .navbar-brand {
-    font-family: "IM Fell English SC", serif;
+    font-family: "Prompt", Light 300;
 }
 
 #appearance-main-viewport {
-    margin-top: 60px;
+    margin-top: 50px;S
 }
 
 /* User menu */

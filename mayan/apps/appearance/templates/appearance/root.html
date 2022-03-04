@@ -21,14 +21,14 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
-        <div class="hidden-xs hidden-sm" id="ajax-spinner" style="display: none;"></div>
+        <div style="background-color: #1575C4;" class="hidden-xs hidden-sm" id="ajax-spinner" style="display: none;"></div>
         {% if appearance_type == 'plain' %}
             {% block content_plain %}{% endblock %}
         {% else %}
             <div id="menu-topbar">
                 {% include 'appearance/menus/menu_topbar.html' %}
             </div>
-            <div id="menu-main">
+            <div style="background-color: #1575C4;" id="menu-main">
                 {% include 'appearance/menus/menu_main.html' %}
             </div>
             <div id="appearance-main-viewport">
