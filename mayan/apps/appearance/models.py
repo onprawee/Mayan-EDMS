@@ -79,4 +79,3 @@ class UserThemeSetting(models.Model):
 
     def __str__(self):
         return force_text(s=self.user)
-

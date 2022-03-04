@@ -5,11 +5,7 @@
 {% load smart_settings_tags %}
 
 {% spaceless %}
-<<<<<<< HEAD
-    <div  aria-multiselectable="true" class="panel-group" id="accordion-sidebar" role="tablist">
-=======
     <div aria-multiselectable="true" class="panel-group" id="accordion-sidebar" role="tablist">
->>>>>>> b4fcd725b3f4b0ad22dcc4d7ef092498baa76eff
         <div class="panel-heading" id="menu-main-button-close" role="tab">
             <h4 class="panel-title">
                 <a class="disabled" href="">
@@ -40,11 +36,7 @@
                                     </h4>
                                 </div>
                                 <div aria-labelledby="heading-{{ link.name }}" class="panel-collapse collapse" id="accordion-body-{{ forloop.counter }}" role="tabpanel">
-<<<<<<< HEAD
-                                    <div  class="panel-body">
-=======
                                     <div class="panel-body">
->>>>>>> b4fcd725b3f4b0ad22dcc4d7ef092498baa76eff
                                         <ul class="list-unstyled">
                                             {% navigation_resolve_menu name=link.name as sub_menus_results %}
                                             {% for sub_menu_results in sub_menus_results %}
@@ -67,11 +59,7 @@
                         {% else %}
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab">
-<<<<<<< HEAD
-                                    <h4  class="panel-title">
-=======
                                     <h4 class="panel-title">
->>>>>>> b4fcd725b3f4b0ad22dcc4d7ef092498baa76eff
                                         {% include 'navigation/generic_link_instance.html' %}
                                     </h4>
                                 </div>
