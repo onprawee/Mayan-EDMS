@@ -26,7 +26,7 @@ class Theme(ExtraDataModelMixin, models.Model):
     )
     logo = models.TextField(
         blank=True, help_text=_(
-            'Upload Link your Logo'
+            'URL your Logo'
         ), verbose_name=_('Logo')
     )
 
@@ -79,3 +79,4 @@ class UserThemeSetting(models.Model):
 
     def __str__(self):
         return force_text(s=self.user)
+
