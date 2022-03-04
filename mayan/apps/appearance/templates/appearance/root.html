@@ -21,14 +21,22 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+<<<<<<< HEAD
         <div  class="hidden-xs hidden-sm" id="ajax-spinner" style="display: none;"></div>
+=======
+        <div class="hidden-xs hidden-sm" id="ajax-spinner" style="display: none;"></div>
+>>>>>>> b4fcd725b3f4b0ad22dcc4d7ef092498baa76eff
         {% if appearance_type == 'plain' %}
             {% block content_plain %}{% endblock %}
         {% else %}
             <div id="menu-topbar">
                 {% include 'appearance/menus/menu_topbar.html' %}
             </div>
+<<<<<<< HEAD
             <div  id="menu-main">
+=======
+            <div id="menu-main">
+>>>>>>> b4fcd725b3f4b0ad22dcc4d7ef092498baa76eff
                 {% include 'appearance/menus/menu_main.html' %}
             </div>
             <div id="appearance-main-viewport">
