@@ -5,10 +5,10 @@
 {% load smart_settings_tags %}
 
 {% spaceless %}
-    <div style="background-color: #1575C4;" aria-multiselectable="true" class="panel-group" id="accordion-sidebar" role="tablist">
+    <div aria-multiselectable="true" class="panel-group" id="accordion-sidebar" role="tablist">
         <div class="panel-heading" id="menu-main-button-close" role="tab">
             <h4 class="panel-title">
-                <style="background-color: #0F6FB5;" a class="disabled" href="">
+                <a class="disabled" href="">
                     <i class="fa fa-angle-double-left"></i>
                 </a>
             </h4>
@@ -24,7 +24,7 @@
                                 <div class="panel-heading" id="heading-{{ link.name }}" role="tab" >
                                     <h4 class="panel-title">
                                         
-                                        <a style="background-color: #0F6FB5;" aria-controls="collapse-{{ link.name }}" aria-expanded="false" class="non-ajax collapsed" data-parent="#accordion-sidebar" data-toggle="collapse" href="#accordion-body-{{ forloop.counter }}" role="button">
+                                        <a aria-controls="collapse-{{ link.name }}" aria-expanded="false" class="non-ajax collapsed" data-parent="#accordion-sidebar" data-toggle="collapse" href="#accordion-body-{{ forloop.counter }}" role="button">
                                             <div class="pull-left">
                                                 {% if link.icon %}{{ link.icon.render }}{% endif %}
                                                 {{ link.label }}
@@ -36,7 +36,7 @@
                                     </h4>
                                 </div>
                                 <div aria-labelledby="heading-{{ link.name }}" class="panel-collapse collapse" id="accordion-body-{{ forloop.counter }}" role="tabpanel">
-                                    <div style="background-color: #1575C4;" class="panel-body">
+                                    <div class="panel-body">
                                         <ul class="list-unstyled">
                                             {% navigation_resolve_menu name=link.name as sub_menus_results %}
                                             {% for sub_menu_results in sub_menus_results %}
@@ -59,7 +59,7 @@
                         {% else %}
                             <div class="panel panel-default">
                                 <div class="panel-heading" role="tab">
-                                    <h4 style="background-color: #0F6FB5;" class="panel-title">
+                                    <h4 class="panel-title">
                                         {% include 'navigation/generic_link_instance.html' %}
                                     </h4>
                                 </div>
