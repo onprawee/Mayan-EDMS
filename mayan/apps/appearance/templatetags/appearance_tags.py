@@ -74,18 +74,18 @@ def appearance_get_icon(icon_path):
 
 @register.simple_tag
 def appearance_get_user_theme_stylesheet(user):
-    # User = get_user_model()
-    # if user and user.is_authenticated:
-    #     try:
-    #         theme = user.theme_settings.theme
-    #     except User.theme_settings.RelatedObjectDoesNotExist:
-    #         # User had a setting assigned which was later deleted.
-    #         return ''
-    #     else:
-    #         if theme:
-    #             return user.theme_settings.theme.stylesheet
-    return Theme.objects.get(pk=4).stylesheet
-    # return ''
+    User = get_user_model()
+    if user and user.is_authenticated:
+        try:
+            theme = user.theme_settings.theme
+        except User.theme_settings.RelatedObjectDoesNotExist:
+            # User had a setting assigned which was later deleted.
+            return ''
+        else:
+            if theme:
+                return user.theme_settings.theme.stylesheet
+    return ''
+    # return Theme.objects.get(pk=4).stylesheet
 
 @register.simple_tag
 def appearance_get_logo():
