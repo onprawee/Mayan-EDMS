@@ -74,26 +74,49 @@ def appearance_get_icon(icon_path):
 
 @register.simple_tag
 def appearance_get_user_theme_stylesheet(user):
-    User = get_user_model()
-    if user and user.is_authenticated:
-        try:
-            theme = user.theme_settings.theme
-        except User.theme_settings.RelatedObjectDoesNotExist:
-            # User had a setting assigned which was later deleted.
-            return ''
-        else:
-            if theme:
-                return user.theme_settings.theme.stylesheet
-    return ''
-    # return Theme.objects.get(pk=4).stylesheet
+    # User = get_user_model()
+    # if user and user.is_authenticated:
+    #     try:
+    #         theme = user.theme_settings.theme
+    #     except User.theme_settings.RelatedObjectDoesNotExist:
+    #         # User had a setting assigned which was later deleted.
+    #         return ''
+    #     else:
+    #         if theme:
+    #             return user.theme_settings.theme.stylesheet
+    # return ''
+    try:
+        return Theme.objects.get(pk=4).stylesheet
+    except:
+        return ''
+
+@register.simple_tag
+def appearance_get_fontname():
+    try:
+        return Theme.objects.get(pk=4).fontname
+    except:
+        return ''
+
+@register.simple_tag
+def appearance_get_fontfile():
+    try:
+        return Theme.objects.get(pk=4).fontfile.name
+    except:
+        return ''
 
 @register.simple_tag
 def appearance_get_logo():
-    return Theme.objects.get(pk=4).logo
+    try: 
+        return Theme.objects.get(pk=4).logo
+    except:
+        return ''
 
 @register.simple_tag
 def appearance_get_logofile():
-    return Theme.objects.get(pk=4).logofile.name
+    try:
+        return Theme.objects.get(pk=4).logofile.name
+    except:
+        return ''
 
 @register.simple_tag
 def appearance_icon_render(icon, enable_shadow=False):

@@ -18,6 +18,14 @@ class Theme(ExtraDataModelMixin, models.Model):
         db_index=True, help_text=_('A short text describing the theme.'),
         max_length=128, unique=True, verbose_name=_('Label')
     )
+    fontname = models.CharField(
+        blank=True, help_text=_(
+            'Name google font (no spaces):  '  
+        ),max_length=128,verbose_name=_('Fontname')
+    )
+    fontfile = models.FileField(
+        upload_to='static/appearance/fonts',null=True , blank=True
+    )
     stylesheet = models.TextField(
         blank=True, help_text=_(
             'The CSS stylesheet to change the appearance of the different '
@@ -32,6 +40,7 @@ class Theme(ExtraDataModelMixin, models.Model):
     logofile = models.ImageField(
         upload_to='static/appearance/images',null=True , blank=True
     )
+
 
     class Meta:
         ordering = ('label',)

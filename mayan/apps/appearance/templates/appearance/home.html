@@ -19,6 +19,8 @@
 {% endblock javascript %}
 
 {% block content %}
+
+<body>
     <div class="row">
         <div class="col-xs-12">
             {% if missing_list %}
@@ -42,6 +44,7 @@
             {% endif %}
         </div>
     </div>
+</body>
 
     {% include 'dynamic_search/search_box.html' %}
 
