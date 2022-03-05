@@ -29,6 +29,9 @@ class Theme(ExtraDataModelMixin, models.Model):
             'URL your Logo'
         ), verbose_name=_('Logo')
     )
+    logofile = models.ImageField(
+        upload_to='static/appearance/images',null=True , blank=True
+    )
 
     class Meta:
         ordering = ('label',)

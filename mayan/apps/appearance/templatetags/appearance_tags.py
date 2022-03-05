@@ -9,6 +9,7 @@ from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from ..models import Theme
 from ..literals import COMMENT_APP_TEMPLATE_CACHE_DISABLE
+from django.templatetags.static import static
 
 app_templates_cache = {}
 register = Library()
@@ -84,10 +85,15 @@ def appearance_get_user_theme_stylesheet(user):
     #         if theme:
     #             return user.theme_settings.theme.stylesheet
     return Theme.objects.get(pk=4).stylesheet
+    # return ''
 
 @register.simple_tag
 def appearance_get_logo():
     return Theme.objects.get(pk=4).logo
+
+@register.simple_tag
+def appearance_get_logofile():
+    return Theme.objects.get(pk=4).logofile.name
 
 @register.simple_tag
 def appearance_icon_render(icon, enable_shadow=False):
