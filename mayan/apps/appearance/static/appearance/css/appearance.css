@@ -14,6 +14,12 @@
 .navbar-brand {
     font-family: "Prompt", Light 300;
 }
+.navbar .navbar-brand {
+    padding: 2px 7.5px;
+}
+  .navbar .navbar-brand img {
+    display: inline-block;
+}
 
 #appearance-main-viewport {
     margin-top: 50px;S
@@ -458,7 +464,6 @@ a i {
 
     .navbar-brand {
         text-align: center;
-        width: 210px;
     }
 }
 
