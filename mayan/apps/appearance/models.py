@@ -20,12 +20,6 @@ class Theme(ExtraDataModelMixin, models.Model):
         max_length=128, unique=True, verbose_name=_('Label')
     )
 
-    # select = [
-    #     ('N', '------'),
-    #     ('L', 'Link'),
-    #     ('F', 'File')
-    # ]
-
     fontname = models.CharField(
         blank=True, help_text=_(
             'Input name google font (no spaces)  '  
@@ -33,14 +27,8 @@ class Theme(ExtraDataModelMixin, models.Model):
     )
 
     fontfile = models.FileField(
-        upload_to='static/appearance/fonts',null=True , blank=True
+        upload_to='static',null=True , blank=True
     )
-
-    # fontselect = models.CharField(
-    #      max_length=1,
-    #      choices=select,
-    #      default='N'
-    # )
 
     stylesheet = models.TextField(
         blank=True, help_text=_(
@@ -56,14 +44,8 @@ class Theme(ExtraDataModelMixin, models.Model):
     )
 
     logofile = models.ImageField(
-        upload_to='static/appearance/images',null=True , blank=True
+        upload_to='static',null=True , blank=True
     )
-
-    # logoselect = models.CharField(
-    #      max_length=1,
-    #      choices=select,
-    #      default='N'
-    # )
 
     class Meta:
         ordering = ('label',)

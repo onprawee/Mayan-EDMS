@@ -20,12 +20,10 @@
         <link href="{% static 'appearance/node_modules/bootswatch/flatly/bootstrap.min.css' %}" media="screen" rel="stylesheet" type="text/css" />
         <link href="{% static 'appearance/css/appearance.css' %}" media="screen" rel="stylesheet" type="text/css" />
         {% block stylesheets %}{% endblock %}
-        
-        {% if appearance_get_fontname != '' %}
+    
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family={%appearance_get_fontname%}" rel="stylesheet">
-        {% endif %}
 
         <style>
             {% appearance_get_user_theme_stylesheet user=request.user %}
