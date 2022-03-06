@@ -32,13 +32,13 @@
 <style>
     {% appearance_get_user_theme_stylesheet user=request.user %}
 
-    {% comment %} {% if appearance_get_fontname != '' %}
+    {% if appearance_get_fontname != '' %}
         body *{
             font-family: {% appearance_get_fontname %} !important;
         }
-    {% endif %} {% endcomment %}
+    {% endif %} 
 
-    {% if appearance_get_fontfile != '' %}
+    {% comment %} {% if appearance_get_fontfile != '' %}
         body *{
             font-family: customfont !important;
         }
@@ -49,8 +49,7 @@
             src:
                 url('{% appearance_get_fontfile%}') format('truetype');
         }
-    {% endif %}
-
+    {% endif %} {% endcomment %}
 
 </style>
 

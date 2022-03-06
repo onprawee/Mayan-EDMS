@@ -98,23 +98,9 @@ def appearance_get_fontname():
         return ''
 
 @register.simple_tag
-def appearance_get_fontfile():
-    try:
-        return Theme.objects.get(label="ThemeCP").fontfile.name
-    except:
-        return ''
-
-@register.simple_tag
 def appearance_get_logo():
     try: 
         return Theme.objects.get(label="ThemeCP").logo
-    except:
-        return ''
-
-@register.simple_tag
-def appearance_get_logofile():
-    try:
-        return Theme.objects.get(label="ThemeCP").logofile.name
     except:
         return ''
 

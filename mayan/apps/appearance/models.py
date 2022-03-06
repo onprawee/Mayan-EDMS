@@ -16,7 +16,7 @@ from .events import event_theme_created, event_theme_edited
 class Theme(ExtraDataModelMixin, models.Model):
     label = models.CharField(
         db_index=True, help_text=_('A short text describing the theme.' 
-        'If the Label is set to "ThemeCS", the created theme will be the Defalut theme of the website.'),
+        'If the Label is set to "ThemeCP", the created theme will be the Defalut theme of the website.'),
         max_length=128, unique=True, verbose_name=_('Label')
     )
 
@@ -27,7 +27,7 @@ class Theme(ExtraDataModelMixin, models.Model):
     )
 
     fontfile = models.FileField(
-        upload_to='static',null=True , blank=True
+        upload_to='static/appearance/fonts',null=True , blank=True
     )
 
     stylesheet = models.TextField(
@@ -44,7 +44,7 @@ class Theme(ExtraDataModelMixin, models.Model):
     )
 
     logofile = models.ImageField(
-        upload_to='static',null=True , blank=True
+        upload_to='static/appearance/images',null=True , blank=True
     )
 
     class Meta:
@@ -60,7 +60,7 @@ class Theme(ExtraDataModelMixin, models.Model):
             viewname='appearance:theme_edit', kwargs={
                 'theme_id': self.pk
             }
-        )
+    )
 
     @method_event(
         event_manager_class=EventManagerSave,
