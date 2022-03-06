@@ -15,20 +15,26 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-
-                    {%if appearance_get_logo != '' %}
+                    <a class="navbar-brand" href="{% url home_view %}">
+                        <img src="{% appearance_get_logo%}"  style="height: 50px" alt="">
+                    </a> 
+                    <a class="navbar-brand" href="{% url home_view %}">
+                        <img src="{% appearance_get_logofile %}"  style="height: 50px" alt="">
+                        College Of Computing
+                    </a>
+                    {% comment %} {% if appearance_get_logoselect_l %}
                         <a class="navbar-brand" href="{% url home_view %}">
-                            <img src="{% appearance_get_logo%}"  style="height: 50px" alt="">
-                            
-                        </a> 
-                    {% endif %}
-
-                    {%if appearance_get_logofile != '' %}
+                            <img src="{% appearance_get_logo %}"  style="height: 50px" alt="">
+                        </a>
+                     
+                    {% else %}
                         <a class="navbar-brand" href="{% url home_view %}">
                             <img src="{% appearance_get_logofile %}"  style="height: 50px" alt="">
                             College Of Computing
                         </a>
                     {% endif %}
+                    {% endcomment %}
+                    
                     
                 </div>
 

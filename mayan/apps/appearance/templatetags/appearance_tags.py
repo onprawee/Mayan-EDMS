@@ -86,37 +86,52 @@ def appearance_get_user_theme_stylesheet(user):
     #             return user.theme_settings.theme.stylesheet
     # return ''
     try:
-        return Theme.objects.get(pk=4).stylesheet
+        return Theme.objects.get(label="ThemeCS").stylesheet
     except:
         return ''
 
 @register.simple_tag
 def appearance_get_fontname():
     try:
-        return Theme.objects.get(pk=4).fontname
+        return Theme.objects.get(label="ThemeCS").fontname
     except:
         return ''
 
 @register.simple_tag
 def appearance_get_fontfile():
     try:
-        return Theme.objects.get(pk=4).fontfile.name
+        return Theme.objects.get(label="ThemeCS").fontfile.name
+    except:
+        return ''
+
+@register.simple_tag
+def appearance_get_fontselect():
+    try:
+        return Theme.objects.get(label="ThemeCS").fontselect[:1]
     except:
         return ''
 
 @register.simple_tag
 def appearance_get_logo():
     try: 
-        return Theme.objects.get(pk=4).logo
+        return Theme.objects.get(label="ThemeCS").logo
     except:
         return ''
 
 @register.simple_tag
 def appearance_get_logofile():
     try:
-        return Theme.objects.get(pk=4).logofile.name
+        return Theme.objects.get(label="ThemeCS").logofile.name
     except:
         return ''
+
+# @register.simple_tag
+# def appearance_get_logoselect():
+#     try:
+#         return Theme.objects.get(label="ThemeCS").logoselect == 'L'
+#     except:
+#         return ''
+        
 
 @register.simple_tag
 def appearance_icon_render(icon, enable_shadow=False):

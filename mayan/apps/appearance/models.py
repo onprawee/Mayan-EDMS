@@ -15,32 +15,55 @@ from .events import event_theme_created, event_theme_edited
 
 class Theme(ExtraDataModelMixin, models.Model):
     label = models.CharField(
-        db_index=True, help_text=_('A short text describing the theme.'),
+        db_index=True, help_text=_('A short text describing the theme.' 
+        'If the Label is set to "ThemeCS", the created theme will be the Defalut theme of the website.'),
         max_length=128, unique=True, verbose_name=_('Label')
     )
+
+    # select = [
+    #     ('N', '------'),
+    #     ('L', 'Link'),
+    #     ('F', 'File')
+    # ]
+
     fontname = models.CharField(
         blank=True, help_text=_(
-            'Name google font (no spaces):  '  
+            'Input name google font (no spaces)  '  
         ),max_length=128,verbose_name=_('Fontname')
     )
+
     fontfile = models.FileField(
         upload_to='static/appearance/fonts',null=True , blank=True
     )
+
+    # fontselect = models.CharField(
+    #      max_length=1,
+    #      choices=select,
+    #      default='N'
+    # )
+
     stylesheet = models.TextField(
         blank=True, help_text=_(
             'The CSS stylesheet to change the appearance of the different '
             'user interface elements.'
         ), verbose_name=_('Stylesheet')
     )
+
     logo = models.TextField(
         blank=True, help_text=_(
-            'URL your Logo'
+            'Input URL your Logo'
         ), verbose_name=_('Logo')
     )
+
     logofile = models.ImageField(
         upload_to='static/appearance/images',null=True , blank=True
     )
 
+    # logoselect = models.CharField(
+    #      max_length=1,
+    #      choices=select,
+    #      default='N'
+    # )
 
     class Meta:
         ordering = ('label',)

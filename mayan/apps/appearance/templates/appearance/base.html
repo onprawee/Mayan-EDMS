@@ -24,22 +24,23 @@
 
 {% block stylesheets %}{% endblock %}
 
+{% if appearance_get_fontname != '' %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family= {% appearance_get_fontname %}" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family={%appearance_get_fontname%}" rel="stylesheet">
+{% endif %}
 <style>
     {% appearance_get_user_theme_stylesheet user=request.user %}
 
-    {% if appearance_get_fontname != '' %}
+    {% comment %} {% if appearance_get_fontname != '' %}
         body *{
             font-family: {% appearance_get_fontname %} !important;
         }
-    {% endif %}
-    
+    {% endif %} {% endcomment %}
+
     {% if appearance_get_fontfile != '' %}
         body *{
             font-family: customfont !important;
-
         }
         @font-face {
             font-family: 'customfont';
@@ -126,7 +127,7 @@
     document.title = '{% filter escapejs %}{% spaceless %}{% block title %}{% endblock %} :: {% block project_name %}{% smart_setting "COMMON_PROJECT_TITLE" %}{% endblock %}{% endspaceless %}{% endfilter %}';
     // Strip HTML entities from the title
     document.title = document.title.replace(/&(?:[a-z\d]+|#\d+|#x[a-f\d]+);/ig, '');
-
+    
     jQuery(document).ready(function() {
         $('[data-toggle="tooltip"]').tooltip();
 
