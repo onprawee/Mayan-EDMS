@@ -86,25 +86,26 @@ def appearance_get_user_theme_stylesheet(user):
     #             return user.theme_settings.theme.stylesheet
     # return ''
     try:
-        return Theme.objects.get(label="ThemeCP").stylesheet
+        return Theme.objects.get(defaulttheme=True).stylesheet
     except:
         return ''
 
 @register.simple_tag
 def appearance_get_fontname():
     try:
-        return Theme.objects.get(label="ThemeCP").fontname
+        return Theme.objects.get(defaulttheme=True).fontname
     except:
         return ''
 
 @register.simple_tag
 def appearance_get_logo():
     try: 
-        return Theme.objects.get(label="ThemeCP").logo
+        return Theme.objects.get(defaulttheme=True).logo
     except:
         return ''
 
-    
+
+
 @register.simple_tag
 def appearance_icon_render(icon, enable_shadow=False):
     return icon.render(extra_context={'enable_shadow': enable_shadow})

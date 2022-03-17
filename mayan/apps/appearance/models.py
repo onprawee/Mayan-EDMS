@@ -15,8 +15,7 @@ from .events import event_theme_created, event_theme_edited
 
 class Theme(ExtraDataModelMixin, models.Model):
     label = models.CharField(
-        db_index=True, help_text=_('A short text describing the theme.' 
-        'If the Label is set to "ThemeCP", the created theme will be the Defalut theme of the website.'),
+        db_index=True, help_text=_('A short text describing the theme.'),
         max_length=128, unique=True, verbose_name=_('Label')
     )
 
@@ -25,11 +24,6 @@ class Theme(ExtraDataModelMixin, models.Model):
             'Input name google font (no spaces)  '  
         ),max_length=128,verbose_name=_('Fontname')
     )
-
-    fontfile = models.FileField(
-        upload_to='static/appearance/fonts',null=True , blank=True
-    )
-
     stylesheet = models.TextField(
         blank=True, help_text=_(
             'The CSS stylesheet to change the appearance of the different '
@@ -43,8 +37,8 @@ class Theme(ExtraDataModelMixin, models.Model):
         ), verbose_name=_('Logo')
     )
 
-    logofile = models.ImageField(
-        upload_to='static/appearance/images',null=True , blank=True
+    defaulttheme = models.BooleanField(
+        verbose_name=_('Use to default Theme ')
     )
 
     class Meta:
@@ -76,7 +70,16 @@ class Theme(ExtraDataModelMixin, models.Model):
     def save(self, *args, **kwargs):
         self.stylesheet = bleach.clean(
             text=self.stylesheet, tags=('style',)
-        )
+        ) 
+        if self.defaulttheme:
+            try:
+                temp = Theme.objects.get(defaulttheme=True)
+                if self != temp:
+                    temp.defaulttheme = False
+                    temp.save()
+            except Theme.DoesNotExist:
+                pass
+
         super().save(*args, **kwargs)
 
 
