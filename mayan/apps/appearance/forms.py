@@ -4,6 +4,8 @@ from mayan.apps.views.forms import DetailForm
 
 from .models import Theme, UserThemeSetting
 
+from bs4 import BeautifulSoup
+
 
 class ThemeForm(forms.ModelForm):
     file_data = forms.FileField(required=False)
@@ -21,10 +23,12 @@ class ThemeForm(forms.ModelForm):
 
     def save(self, commit=True):
         obj = super().save(commit=False)
-
         uploaded_file = self.cleaned_data['file_data']
+
         if uploaded_file is not None:
-            obj.stylesheet = uploaded_file.read().decode()
+            data = uploaded_file.read()
+            # Bs_data = BeautifulSoup(data, "lxml")
+            obj.stylesheet = data.decode()
 
         if commit:
             obj.save()
@@ -42,7 +46,6 @@ class UserThemeSettingForm(forms.ModelForm):
                 }
             ),
         }
-
 
 class UserThemeSettingForm_view(DetailForm):
     class Meta:
